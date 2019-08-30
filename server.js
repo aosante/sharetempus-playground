@@ -28,11 +28,11 @@ app.get("/categories", (req, res) => {
 app.get("/create-customer", (req, res) => {
   //id: cus_6k2Ef2aCyfsEM4tb0gXzyjH4
   const testCustomer = {
-    email: "customerjsmith@sharetempus.com",
+    email: "customerli@sharetempus.com",
     legalEntity: {
       type: "individual",
-      firstName: "John",
-      lastName: "Smith",
+      firstName: "Jaime",
+      lastName: "Li",
       birthdate: 637124400000,
       ssnLast4: "1234",
       address: {
@@ -48,11 +48,11 @@ app.get("/create-customer", (req, res) => {
 
   //id: cus_HIQ3zUp6W15RL8XnoR4Bs8TT
   const testRenter = {
-    email: "renterjdoe@sharetempus.com",
+    email: "renterosante@sharetempus.com",
     legalEntity: {
       type: "individual",
-      firstName: "John",
-      lastName: "Doe",
+      firstName: "Andres",
+      lastName: "Osante",
       birthdate: 637124400000,
       ssnLast4: "5678",
       address: {
@@ -103,8 +103,8 @@ app.get("/policy-quote", (req, res) => {
   const tomorrow = tomorrowDate.getTime();
   ShareTempus.policies
     .quote({
-      customer: "cus_6k2Ef2aCyfsEM4tb0gXzyjH4",
-      renter: "cus_HIQ3zUp6W15RL8XnoR4Bs8TT",
+      customer: "cus_6EcJcDJ727W2YTREA56gdUCT",
+      renter: "cus_lIjByvepqAyAJZkuO4v3YBsw",
       currency: "usd",
       startDate: today,
       endDate: tomorrow,
@@ -124,11 +124,10 @@ app.get("/policy-quote", (req, res) => {
 });
 
 //create a policy
-//policy id: pol_hoTvm1JvO84hqfZXkxJkf9rN
-//policy ticket: ticket_4M7WZkoFpWDjRBuiM3Pyuvcv
+//{"token":"tok_0TcB7okFYtQakF5OI9vp3EIk","quote":400}
 app.get("/create-policy", (req, res) => {
   ShareTempus.policies
-    .create({ token: "tok_TWyJsQyjQei6k7UF9ouSFqDc" })
+    .create({ token: "tok_0TcB7okFYtQakF5OI9vp3EIk" })
     .then(policy => res.json(policy))
     .catch(err => console.log(err));
 });
